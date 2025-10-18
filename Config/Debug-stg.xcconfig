@@ -1,0 +1,16 @@
+//
+//  Debug-stg.xcconfig
+//  JPApexPredators
+//
+//  Created by 陳力聖 on 2025/10/11.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+//#include "Generated.xcconfig"
+
+ASSET_PREFIX=stg
+BUNDLE_NAME=JPApexPredators Stg
+BUNDLE_DISPLAY_NAME=JPApexPredators Stg

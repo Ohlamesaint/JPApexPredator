@@ -24,7 +24,13 @@ struct ContentView: View {
         NavigationStack {
             List(filterdDinos) { predator in
                 NavigationLink {
-                    PredatorDetail(preditor: predator, position: .camera(MapCamera(centerCoordinate: predator.location, distance: 30000)))
+                    PredatorDetail(
+                        preditor: predator,
+                        position: .camera(MapCamera(
+                            centerCoordinate: predator.location,
+                            distance: 30000
+                        ))
+                    )
                 } label: {
                     HStack {
                         Image(
@@ -50,7 +56,11 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Apex Predators")
-            .searchable(text: $searchText)
+            .searchable(
+                text: $searchText,
+                prompt: Text(Bundle.main
+                    .infoDictionary?["API_URL"] as? String ?? "Search")
+            )
             .autocorrectionDisabled()
             .animation(.default, value: searchText)
             .toolbar {
@@ -69,7 +79,10 @@ struct ContentView: View {
                     Menu {
                         Picker("Filter", selection: $currentType.animation()) {
                             ForEach(ApexPredatorType.allCases) { type in
-                                Label(type.rawValue.capitalized, systemImage: type.icon)
+                                Label(
+                                    type.rawValue.capitalized,
+                                    systemImage: type.icon
+                                )
                             }
                         }
                     } label: {

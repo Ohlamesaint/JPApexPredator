@@ -5,6 +5,7 @@
 //  Created by 陳力聖 on 2025/10/10.
 //
 
+import FirebaseAnalytics
 import Foundation
 
 class Predators {
@@ -13,15 +14,27 @@ class Predators {
 
     init() {
         decodeApexPredatorData()
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-\(deviceId!)",
+            AnalyticsParameterItemName: deviceId!,
+            AnalyticsParameterContentType: "cont",
+        ])
     }
 
     func decodeApexPredatorData() {
-        if let url = Bundle.main.url(forResource: "jpapexpredators", withExtension: "json") {
+        if let url = Bundle.main.url(
+            forResource: "jpapexpredators",
+            withExtension: "json"
+        ) {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                allApexPredators = try decoder.decode([ApexPredator].self, from: data)
+                allApexPredators = try decoder.decode(
+                    [ApexPredator].self,
+                    from: data
+                )
             } catch {
                 print("Error decoding JSON data: \(error)")
             }
@@ -36,7 +49,8 @@ class Predators {
     }
 
     func sort(by alphabetical: Bool) {
-        apexPredators.sort(by: { alphabetical ? $0.name < $1.name : $0.id < $1.id })
+        apexPredators
+            .sort(by: { alphabetical ? $0.name < $1.name : $0.id < $1.id })
     }
 
     func filter(by type: ApexPredatorType) {
