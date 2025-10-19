@@ -36,7 +36,7 @@ if [ $WARNING_COUNT -gt 0 ]; then
     echo "$WARNINGS"
 fi
 
-# 決定退出碼
+# Decide exit code
 if [ $ERROR_COUNT -gt 0 ]; then
     echo ""
     echo "❌ Commit blocked due to errors!"
