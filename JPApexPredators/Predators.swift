@@ -15,7 +15,6 @@ class Predators {
     init() {
         decodeApexPredatorData()
         let deviceId = UIDevice.current.identifierForVendor?.uuidString
-        print("user device id: \(deviceId ?? "unknown")")
         Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
             AnalyticsParameterItemID: "id-\(deviceId ?? "unknown")",
             AnalyticsParameterItemName: deviceId ?? "unknown",
