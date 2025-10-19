@@ -17,8 +17,8 @@ class Predators {
         let deviceId = UIDevice.current.identifierForVendor?.uuidString
         print("user device id: \(deviceId ?? "unknown")")
         Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
-            AnalyticsParameterItemID: "id-\(deviceId!)",
-            AnalyticsParameterItemName: deviceId!,
+            AnalyticsParameterItemID: "id-\(deviceId ?? "unknown")",
+            AnalyticsParameterItemName: deviceId ?? "unknown",
             AnalyticsParameterContentType: "cont"
         ])
     }
