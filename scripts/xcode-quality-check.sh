@@ -23,7 +23,7 @@ echo "📊 Build analysis:"
 echo "   Errors: $ERROR_COUNT"
 echo "   Warnings: $WARNING_COUNT"
 
-# 顯示錯誤和警告
+# Show errors and warnings
 if [ $ERROR_COUNT -gt 0 ]; then
     echo ""
     echo "❌ BUILD ERRORS:"
