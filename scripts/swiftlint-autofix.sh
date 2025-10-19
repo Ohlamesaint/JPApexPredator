@@ -2,7 +2,7 @@
 
 echo "🔧 Running SwiftLint AutoFix..."
 
-# 切換到專案根目錄
+# Switch to project root directory
 cd "$(git rev-parse --show-toplevel)" || exit 1
 
 echo "Current directory: $(pwd)"
