@@ -23,7 +23,7 @@ struct PredatorDetail: View {
                         .overlay {
                             LinearGradient(stops: [
                                 Gradient.Stop(color: .clear, location: 0.8),
-                                Gradient.Stop(color: .black, location: 1.0),
+                                Gradient.Stop(color: .black, location: 1.0)
                             ], startPoint: .top, endPoint: .bottom)
                         }
                     // Dinasour Image
