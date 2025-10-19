@@ -129,7 +129,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 149EAF0A2E987AC700E625FF /* Build configuration list for PBXNativeTarget "JPApexPredators" */;
 			buildPhases = (
-				1477730F2EA3984C00BA69AC /* [lint] Swift Lint */,
 				1477719A2EA14B4A00BA69AC /* [cp] copy right google service info plist to built products directory */,
 				149EAEFB2E987AC400E625FF /* Sources */,
 				149EAEFC2E987AC400E625FF /* Frameworks */,
@@ -140,6 +139,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				147772B22EA388DF00BA69AC /* PBXTargetDependency */,
 				149EAF4F2E99330200E625FF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -286,25 +286,6 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"🔥 Selecting Firebase config for ${CONFIGURATION}\"\n\ncase \"${CONFIGURATION}\" in\n  debug-dev | release-dev)\n    cp \"${PROJECT_DIR}/JPApexPredators/GoogleService-Info-Dev.plist\" \\\n       \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\n    ;;\n  debug-stg | release-stg)\n    cp \"${PROJECT_DIR}/JPApexPredators/GoogleService-Info-Stg.plist\" \\\n       \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\n    ;;\n  debug-prod | release-prod)\n    cp \"${PROJECT_DIR}/JPApexPredators/GoogleService-Info-Prod.plist\" \\\n       \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\"\n    ;;\n  *)\n    echo \"⚠️ No Firebase config matched for ${CONFIGURATION}\"\n    ;;\nesac\n";
 		};
-		1477730F2EA3984C00BA69AC /* [lint] Swift Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[lint] Swift Lint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/swiftlint.done",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -318,6 +299,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		147772B22EA388DF00BA69AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 147772B12EA388DF00BA69AC /* SwiftLintBuildToolPlugin */;
+		};
 		149EAF4F2E99330200E625FF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 149EAF482E99330000E625FF /* ApexStickers */;
@@ -402,10 +387,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7J9VT69WQM;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JPApexPredators/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JPApexPredators Dev";
@@ -532,10 +516,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7J9VT69WQM;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JPApexPredators/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JPApexPredators Dev";
@@ -657,7 +640,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7J9VT69WQM;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JPApexPredators/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JPApexPredators Dev";
@@ -779,7 +762,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7J9VT69WQM;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JPApexPredators/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JPApexPredators Dev";
@@ -965,10 +948,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7J9VT69WQM;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JPApexPredators/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JPApexPredators Dev";
@@ -1007,10 +989,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 7J9VT69WQM;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JPApexPredators/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "JPApexPredators Dev";
@@ -1176,6 +1157,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1477718A2EA134D000BA69AC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseRemoteConfig;
+		};
+		147772B12EA388DF00BA69AC /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1477715F2E9A82B000BA69AC /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
