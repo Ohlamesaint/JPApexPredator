@@ -8,6 +8,7 @@
 import FirebaseAnalytics
 import Foundation
 
+@MainActor
 class Predators {
     var allApexPredators: [ApexPredator] = []
     var apexPredators: [ApexPredator] = []
