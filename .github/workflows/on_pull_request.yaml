@@ -1,7 +1,4 @@
-# This workflow will build a Swift project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
-
-name: Swift
+name: Swift CI
 
 on:
   pull_request:
@@ -12,7 +9,31 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Build and test
+      # 1️⃣ Checkout source code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2️⃣ Clean any old DerivedData before build
+      - name: Clean DerivedData
         run: |
-          xcodebuild test -scheme Runner-dev -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest'
+          rm -rf ~/Library/Developer/Xcode/DerivedData
+          rm -rf ./DerivedData-${{ github.run_id }}
+
+      # 3️⃣ Build and test with Explicit Module Builds disabled
+      - name: Build and Test (Runner-dev)
+        run: |
+          xcodebuild \
+            -scheme Runner-dev \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=latest' \
+            -derivedDataPath ./DerivedData-${{ github.run_id }} \
+            SWIFT_ENABLE_EXPLICIT_MODULES=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            clean test | xcpretty
+
+      # # 4️⃣ (Optional) Archive artifacts if you need test logs or coverage
+      # - name: Upload DerivedData on failure
+      #   if: failure()
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: DerivedData
+      #     path: ./DerivedData-${{ github.run_id }}
