@@ -14,7 +14,8 @@ repos:
         types: [swift]
       - id: xcode-quality-check-strict
         name: Xcode Quality Check
-        entry: ./scripts/xcode-quality-check.sh # --strict
+        entry: ./scripts/xcode-quality-check-v2.sh # --strict
         language: system
         types: [swift]
         pass_filenames: false
+        stages: [pre-push]
